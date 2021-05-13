@@ -1,3 +1,5 @@
+import model
+import cache
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -7,21 +9,26 @@ from PIL import Image
 def home(features):
     st.title('Home')
 
-    df = pd.DataFrame({
-        'first column': [1, 2, 3, 4],
-        'second column': [10, 20, 30, 40]
-    })
-
-    st.write("Here's our first attempt at using data to create a table:")
-    st.write(df)
+    st.header("Sample Attributes")
     st.write(features)
+
+    st.header("Prediction")
+    st.write(model.predict(features))
 
 
 def data_visualization():
     st.title('Data Visualization')
 
+    st.header('Dataset')
+    st.write(cache.dataset())
+
+    st.header('Heatmap')
+    st.pyplot(cache.heatmap())
+
+    st.header('Charts')
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
     st.line_chart(chart_data)
+    st.area_chart(chart_data)
 
 
 def report():
@@ -57,3 +64,4 @@ def about_us():
     bears = Image.open(f'{dir}/bears.jpg')
     col3.image(bears, caption='Bears')
     col3.write("I'm Bears.")
+

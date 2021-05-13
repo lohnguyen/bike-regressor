@@ -32,7 +32,7 @@ def home():
 
 
 def data_visualization():
-    st.sidebar.slider("Zoom (%):", 0, 100, 50)
+    pass
 
 
 def report():
