@@ -1,10 +1,6 @@
 import page
 import sidebar
 
-import numpy as np
-import pandas as pd
-import streamlit as st
-
 
 def home():
     features = sidebar.home()
@@ -14,6 +10,11 @@ def home():
 def data_visualization():
     sidebar.data_visualization()
     page.data_visualization()
+
+
+def report():
+    sidebar.report()
+    page.report()
 
 
 def about_us():
@@ -26,6 +27,5 @@ if __name__ == "__main__":
 
     if nav_option == "Home": home()
     elif nav_option == "Data Visualization": data_visualization()
+    elif nav_option == "Report": report()
     elif nav_option == "About Us": about_us()
-
-
