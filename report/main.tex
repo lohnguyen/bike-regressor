@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+
+\usepackage{subfiles} 
+% Helps to prevent merge conflicts by allowing us to edit in seperate files
+\def\biblio{\bibliographystyle{unsrt}\bibliography{bibgraf}}
+%Solution for using bibtex with bibliography (bibtex) found on https://en.wikibooks.org/wiki/LaTeX/Modular_Documents
+
+\title{Bicycle Ridesharing}
+\author{Sonya Gomez Enriquez \and Mack Gregory \and Joshua Gillen \and Bryce Joseph-Nelson \and Malini Manimaran \and Devon Mirsalis \and Charles Nguyen \and Gabriel Raulet \and Albert Stanley \and Jordan Stefani}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsfonts} % Fonts like \mathbb and \mathcal
+\usepackage{amssymb}
+
+\newcommand{\divides}{\mid}
+\newcommand{\notdivides}{\nmid}
+
+
+
+\usepackage[sorting = none]{biblatex} 
+\addbibresource{bibliography.bib}
+
+
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\BigO}{\mathcal{O}} % Shortened Easy to remember latex definitions
+\newcommand{\parenmod}[1]{(\text{mod } #1)}
+\usepackage{setspace}
+\doublespacing
+
+
+\usepackage{hyperref}
+
+\begin{document}
+\def\biblio{} % Enables bibliography
+\maketitle
+\subfile{introduction.tex}
+\subfile{literature_review.tex}
+\subfile{dataset_description.tex}
+\subfile{solution.tex}
+\subfile{results.tex}
+\subfile{conclusion.tex}
+
+% Nothing should beyond this point except bilbiography and further resources.
+\printbibliography[ title={References}]
+
+\end{document}
