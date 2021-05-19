@@ -14,7 +14,7 @@ def home():
     header("Sample Attributes")
 
     num_rentals = st.sidebar.slider("Rental count (bike):", 0, 1000, 100, 5)
-    duration = st.sidebar.slider("Duration (hours):", 0, 10, 5, 1)
+    duration = st.sidebar.slider("Hour (hours):", 0, 10, 5, 1)
     temperature = st.sidebar.slider("Temperature (C):", -30.0, 60.0, 25.0, 1.0)
     humidity = st.sidebar.slider("Humidity (%):", 20, 50, 1)
     wind_speed = st.sidebar.slider("Wind speed (m/s):", 0.0, 10.0, 2.0, 0.1)
