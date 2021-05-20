@@ -46,8 +46,8 @@ def encode_user_values(params):
     ret_dict["Rainfall"] = params["Rainfall"]
     ret_dict["Snow"] = params["Snow"]
     ret_dict["Weekend"] = 1 * (params["DWeek"] in ["Saturday", "Sunday"])
-    ret_dict["Holiday"] = 1 if params["Holiday"] == 'True' else 0
-    ret_dict["Fday"] = 1 if params["Fday"] == 'True' else 0
+    ret_dict["Holiday"] = 1 if params["Holiday"] == 'Yes' else 0
+    ret_dict["Fday"] = 1 if params["Fday"] == 'Yes' else 0
     days = ["Friday", "Monday", "Saturday", "Sunday", "Thursday", "Tuesday","Wedesday"]
     
     # Encode days
