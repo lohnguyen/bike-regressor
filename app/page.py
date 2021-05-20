@@ -6,14 +6,18 @@ import streamlit as st
 
 from PIL import Image
 
-def home(features):
+def home(sample):
     st.title('Home')
 
+    model_type = sample['Model'].lower().replace(" ", "_")
+    del sample['Model']
+
     st.header("Sample Attributes")
-    st.write(features)
+    st.write(sample)
 
     st.header("Prediction")
-    st.write(model.predict(features))
+    pred = model.predict_bike_count(sample, model_type)
+    st.write(pred)
 
 
 def data_visualization():

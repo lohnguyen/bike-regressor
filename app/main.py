@@ -3,8 +3,8 @@ import sidebar
 
 
 def home():
-    features = sidebar.home()
-    page.home(features)
+    sample = sidebar.home()
+    page.home(sample)
 
 
 def data_visualization():
