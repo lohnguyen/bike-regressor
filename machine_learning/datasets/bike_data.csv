@@ -1,4 +1,4 @@
-,Count,Hour,Temp,Hum,Wind,Visb,Rainfall,Snow,Weekend,Holiday,Fday,DWeek_Friday,DWeek_Monday,DWeek_Saturday,DWeek_Sunday,DWeek_Thursday,DWeek_Tuesday,DWeek_Wedesday,Seasons_Autumn,Seasons_Spring,Seasons_Summer,Seasons_Winter
+,Count,Hour,Temp,Hum,Wind,Visb,Rainfall,Snow,Weekend,Holiday,Fday,DWeek_Friday,DWeek_Monday,DWeek_Saturday,DWeek_Sunday,DWeek_Thursday,DWeek_Tuesday,DWeek_Wednesday,Seasons_Autumn,Seasons_Spring,Seasons_Summer,Seasons_Winter
 0,254,0,-5.2,37,2.2,2000,0.0,0.0,False,False,True,True,False,False,False,False,False,False,False,False,False,True
 1,204,1,-5.5,38,0.8,2000,0.0,0.0,False,False,True,True,False,False,False,False,False,False,False,False,False,True
 2,173,2,-6.0,39,1.0,2000,0.0,0.0,False,False,True,True,False,False,False,False,False,False,False,False,False,True

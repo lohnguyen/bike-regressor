@@ -1,4 +1,4 @@
-,Hour,Temp,Hum,Wind,Visb,Rainfall,Snow,Weekend,Holiday,Fday,DWeek_Friday,DWeek_Monday,DWeek_Saturday,DWeek_Sunday,DWeek_Thursday,DWeek_Tuesday,DWeek_Wedesday,Seasons_Autumn,Seasons_Spring,Seasons_Summer,Seasons_Winter,Count
+,Hour,Temp,Hum,Wind,Visb,Rainfall,Snow,Weekend,Holiday,Fday,DWeek_Friday,DWeek_Monday,DWeek_Saturday,DWeek_Sunday,DWeek_Thursday,DWeek_Tuesday,DWeek_Wednesday,Seasons_Autumn,Seasons_Spring,Seasons_Summer,Seasons_Winter,Count
 0,0.17391304347826086,0.11327433628318584,0.5102040816326531,0.16216216216216214,0.99288256227758,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,33
 1,0.8695652173913043,0.2070796460176991,0.44897959183673464,0.28378378378378377,0.9969496695475343,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,218
 2,0.34782608695652173,0.511504424778761,0.673469387755102,0.1081081081081081,0.9954245043213014,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0
