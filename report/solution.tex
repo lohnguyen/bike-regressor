@@ -4,5 +4,75 @@
 
 \begin{document}
 \section{Proposed Solution}
-Lorem Ipsum
+To find the most accurate prediction algorithm, we tried four different ones-- Linear Regression,
+SVM(Support Vector Machines), Gradient Boosting, and Random Forest. We compared their
+accuracy using their $R^2$ Score. All the algorithms followed the same code structure.
+\begin{enumerate}[topsep=-1ex]
+	\item Split the dataset 70:30 into a training and testing set.
+	\item Fit the training dataset onto the required algorithm using the sklearn library in Python.
+	Evaluate with the testing set and take it’s $R^2$ value for future comparison.
+	\item If applicable, re-fit the model after using grid search to find the best possible
+	hyperparameters to increase model accuracy [$R^2$ value].
+	Train model on entire dataset and persist model for deployment on web application.
+\end{enumerate}
+\subsection{Algorithm Results}
+\begin{tabular}{|l|l|l|l|}
+	\hline
+	Model & $R^2$ value & Grid Search & $R^2$ value after Grid Search\\
+	\hline
+	SVM(Support Vector Machines) & 0.799 & Yes & 0.898\\
+	\hline
+	Linear Regression & 0.531 & No & N/A\\
+	\hline
+	Gradient Boosting & 0.835 & Yes & 0.928\\
+	\hline
+	Random Forest & 0.908 & Yes & 0.91\\
+	\hline
+\end{tabular}
+
+\subsection{Random Forests}
+Our most reliable and successful algorithm was the Random Forests algorithm\cite{Donges2019}. The Random
+Forests algorithm works by creating a large number of decision trees and combining them into a
+“forest”. The ending “forest” tends to be reliable since its decision trees don’t allow overfitting
+because they rely on multiple features. The Random Forest algorithm was chosen to be the main
+algorithm in our web application because on average it had a higher $R^2$ value than the other 3
+algorithms. The Random Forest algorithm's final $R^2$ value after grid search was 0.91, with its
+pre-grid search $R^2$ value being 0.908.
+
+\subsection{Gradient Boosting}
+Our second most successful algorithm, which you can also try on the web application and that
+should have fairly similar results was the gradient boosting algorithm\cite{Singh2018}. Like the Random Forests
+algorithm, the gradient boosting algorithm works by making decision trees. But unlike the
+random forests algorithm, this one works by improving on a single tree by updating the weights
+for a number of iterations. The final $R^2$ value was 0.928 with it’s pre-grid search score being
+0.835.
+
+\subsection{Linear Regression and SVM}
+Our Linear Regression model\cite{StatisticsSolutions} was the least successful. Linear Regression works by fitting an
+equation in the form of $Y = b + cx$ if simple or $Y = b + \sum_{i=0}^{n}c_ix^i$ if more
+complex. The data is fit onto the equation by updating the weights ($c_i$ coefficients and the bias $b$). Linear
+Regression has a $R^2$ value of 0.531-- proving to be less accurate than the other algorithms.
+SVM\cite{Gandhi2018} is similar to Linear Regression, but in this case, the algorithm adjusts the hyperplane
+according to the data points closest to the hyperplane. The SVM algorithm has a $R^2$ value of
+0.799 and 0.898 after grid search.
+
+\subsection{User Interface}
+To create the most optimal web app to support our needs for this project, we looked for
+one that was Python-based and could easily support proper data visualization along with easy
+HTML/text implementation for the sections that relied mostly on sharing data and parts of the
+report. We did not want to expend unnecessary energy on a complex web app. We ended up
+using “Streamlit” to launch our web app. Streamlit runs on Python code and takes care of most of
+the frontend, so we only had to code the actual Machine Learning application, the Report section,
+About Us section, and Data Visualization section.
+
+We created a sidebar on the web app that holds our navigation menu. The Navigation
+menu has a few options, “Home”, “Data Visualization”, “Report”, and “About Us”. The Home
+page is where our best performing machine learning application will be run. The variables
+required to run the algorithm will be input in the sidebar and the algorithm results are presented
+on the left. The code of the algorithm is explained in the Proposed Solution and Results section.
+The Data Visualization is a very thorough report of our Data Exploration and general
+visualization of the dataset so we know what to expect. The Report section just showcases our
+report. The About Us section tells about the team members and all of our roles and contributions.
+
+
 \end{document}
