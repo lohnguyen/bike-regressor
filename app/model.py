@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from joblib import dump, load
+from joblib import load
 
 
 def encode_user_values(params):
@@ -68,7 +68,7 @@ def encode_user_values(params):
 
 
 # CALL THIS FUNCTION WITH APPROPRIATE MODEL PATHS AND INPUT DATA TO GET PREDICTION
-# also requires the function above ( encode user values)
+# also requires the function above (encode user values)
 # defaults to SVM 
 def predict_bike_count(raw_input, model_type='linear_regression'):
     """

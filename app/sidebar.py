@@ -2,7 +2,7 @@ import streamlit as st
 
 
 def navigation():
-    menu = ["Home", "Data Visualization", "Report", "About Us"]
+    menu = ["Home", "Data Visualization", "About Us"]
     return st.sidebar.selectbox("Navigation", menu)
 
 
@@ -31,10 +31,6 @@ def home():
 
 
 def data_visualization():
-    pass
-
-
-def report():
     pass
 
 

@@ -13,7 +13,10 @@ def home(sample):
     del sample['Model']
 
     st.header("Sample Attributes")
-    st.write(sample)
+    data_sample = {}
+    for k, v in sample.items():
+        data_sample[k] = [v]
+    st.write(pd.DataFrame(data_sample))
 
     st.header("Prediction")
     pred = model.predict_bike_count(sample, model_type)
@@ -33,22 +36,6 @@ def data_visualization():
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
     st.line_chart(chart_data)
     st.area_chart(chart_data)
-
-
-def report():
-    st.title('Report')
-
-    st.markdown('''
-    ## This is the document title
-
-    This is some _markdown_.
-    ''')
-
-    st.latex(r'''
-        a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
-        \sum_{k=0}^{n-1} ar^k =
-        a \left(\frac{1-r^{n}}{1-r}\right)
-    ''')
 
 
 def about_us():
@@ -89,7 +76,7 @@ def about_us():
     col2.image(bare, caption='Gabriel Raulet')
     col2.write("")
 
-    we = Image.open(f'{dir}/bears.jpg')
+    we = Image.open(f'{dir}/albert.jpg')
     col1.image(we, caption='Albert Stanley')
     col1.write("I am a junior at UC Davis studying Computer Science. I chose my major because I enjoyed the problem solving nature of work in computer science, and I want to work within the machine learning field since it has brought about many of the interesting technologies we have today. I helped with data cleaning, training the linear regression model and training time series models.")
 
