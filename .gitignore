@@ -1,1 +1,12 @@
 *.pyc
+
+# Latex output files
+report/*.out
+report/*.log
+report/*.bcf
+report/*.bbl
+report/*.blg
+report/*.synctex.gz
+report/*.aux
+report/*.run.xml
+report/*.bak
