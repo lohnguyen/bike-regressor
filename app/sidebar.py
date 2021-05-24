@@ -15,7 +15,7 @@ def home():
 
     sample = {}
     sample['Model'] = st.sidebar.radio("Model:", ("Linear Regression", "Random Forest", "Gradient Boosting", "SVM"))
-    sample['Hour'] = st.sidebar.slider("Hour (hours):", 0, 10, 5, 1)
+    sample['Hour'] = st.sidebar.slider("Time of Day:", 0, 23, 5, 1)
     sample['Temp'] = st.sidebar.slider("Temperature (C):", -30.0, 60.0, 25.0, 1.0)
     sample['Hum'] = st.sidebar.slider("Humidity (%):", 20, 50, 1)
     sample['Wind'] = st.sidebar.slider("Wind speed (m/s):", 0.0, 10.0, 2.0, 0.1)
