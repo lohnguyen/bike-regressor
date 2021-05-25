@@ -18,7 +18,8 @@ def home(sample):
     """
     st.markdown(html_title, unsafe_allow_html=True)
     st.markdown(r'''
-                    Bike Prediction helps bike-shop owners gauge the demand for bikes on a day in Seoul. A prediction requires eleven attributes as the followings:
+                    Our Bike Prediction models allow you to gauge the demand for bikes for any time in Seoul. 
+                    A prediction requires eleven attributes as the followings:
 
                     - Continuous: time of day, temperature, humidity, windspeed, visibility, rainfall, snowfall.
                     - Categorical: day of week, whether it is a holiday, season, and whether it is a business day.
@@ -53,7 +54,7 @@ def home(sample):
                 ''')
 
     st.header('Which model to use?')
-    st.write('''
+    st.write(r'''
                 Here, we include 4 different models . 
                 We recommend using Random Forests or Gradient Boosting as they are the most accurate and comparable to one another. 
                 Support Vector Machine (SVM) is still accurate and trustworthy for a choice. 
@@ -62,12 +63,12 @@ def home(sample):
 
     st.header("Model Comparison")
     st.markdown(r"""
-        | Model             | $R^2$ with Grid Search | $R^2$ without Grid Search |
-        | :---              |                   ---: |                      ---: |
-        | Random Forest     | 0.908                  | 0.910                     |
-        | Gradient Boosting | 0.835                  | 0.928                     |
-        | SVM               | 0.799                  | 0.898                     |
-        | Linear Regression | 0.531                  | 0.538                     |
+        | Model             | $R^2$ without Grid Search | $R^2$ with Grid Search |
+        | :---              |                      ---: |                   ---: |
+        | Random Forest     | 0.908                     | 0.910                  |
+        | Gradient Boosting | 0.835                     | 0.928                  |
+        | SVM               | 0.799                     | 0.898                  |
+        | Linear Regression | 0.531                     | 0.538                  |
     """)
 
     st.header("Is this accurate for other places than Seoul?")
