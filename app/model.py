@@ -99,4 +99,4 @@ def predict_bike_count(raw_input, model_type='linear_regression'):
     pred = model.predict(scaled_values)
     ret_val = round(pred[0])
 
-    return ret_val
+    return max(ret_val, 0)

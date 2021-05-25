@@ -1,5 +1,6 @@
 import page
 import sidebar
+import streamlit as st
 
 
 def home():
@@ -18,6 +19,7 @@ def about_us():
 
 
 if __name__ == "__main__":
+    st.set_page_config(page_title='Bike Prediction')
     nav_option = sidebar.navigation()
 
     if nav_option == "Home": home()

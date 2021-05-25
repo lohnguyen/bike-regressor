@@ -10,7 +10,7 @@ def heatmap():
     df = dataset()
     fig, ax = plt.subplots(figsize=(20, 15))
     sb.heatmap(df.corr(), fmt='.2f', annot=True, ax=ax)
-    return fig
+    print(fig)
 
 
 @st.cache
@@ -32,7 +32,7 @@ def figures():
 def photos():
     photos = {}
     team = ['sonya', 'mack', 'joshua', 'bryce', 'malini', 
-            'devon', 'charles', 'gabriel', 'albert', 'we']
+            'devon', 'charles', 'gabriel', 'albert', 'jordan']
     for t in team:
         photos[t] = Image.open(f'app/static/{t}.jpg')
     return photos
