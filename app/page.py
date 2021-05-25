@@ -1,6 +1,5 @@
 import model
 import cache
-import numpy as np
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components 
@@ -8,31 +7,26 @@ import streamlit.components.v1 as components
 from PIL import Image
 
 def home(sample):
-    html_title = f"""
+    html_title = r"""
         <div style="background.color:#333547; padding:.5em; margin-bottom:2em">
-            <div style="text_align:center">
-                <h1 style="color:white">Bicyle Prediction</h1>
-                <h1 style="color:white">🚵🚵‍♂️🚵‍♀️</h1>
+            <div style="text_align:center; font-size:30pt; color:white">
+                <div>🤖</div>
+                <div>Bike Prediction</div>
+                <div>🚵🚵‍♂️🚵‍♀️</div>
             </div>
         </div>
     """
     st.markdown(html_title, unsafe_allow_html=True)
-    st.write('This web app is made so that one looking to rent a bike knows whether there will be high demand for bikes at the time in Seoul. To predict the amount of bicycle’s rented daily we take into account eleven attributes. Seven are continuous: Hour of rental, temperature, humidity, windspeed, visibility, rainfall, snowfall. And the others are categorical: day of week, whether it is a holiday, the season, and whether it is a business day. All of these values can be found on most, if not all, weather websites or apps.')
+    st.markdown(r'''
+                    Bike Prediction helps bike-shop owners gauge the demand for bikes on a day in Seoul. A prediction requires eleven attributes as the followings:
 
-    st.header('Which model to use?')
-    st.write('We included a few different models to use. We recommend using the Random Forests or the Gradient Boosting algorithm as they are the most accurate and comparable to one another. More information on this can be found in the report. Support Vector Machine (SVM) is still accurate and trustworthy for a choice. Linear Regression is not accurate, but if you are curious, feel free to compare the outcomes between this algorithm and the others.')
+                    - Continuous: time of day, temperature, humidity, windspeed, visibility, rainfall, snowfall.
+                    - Categorical: day of week, whether it is a holiday, season, and whether it is a business day.
 
-    st.header("Model Comparison")
-    st.markdown(r"""
-        | Model             | R^2   | Grid Search | R^2 + Grid Search |
-        | :---              |  ---: | :---        |              ---: |
-        | SVM               | 0.799 | Yes         | 0.898             |
-        | Linear Regression | 0.531 | No          | N/A               |
-        | Gradient Boosting | 0.835 | Yes         | 0.928             |
-        | Random Forest     | 0.908 | Yes         | 0.91              |
-    """)
+                   ⬅️ To start, adjust the values for each attribute using the slidebar on the left.
+                ''')
 
-    st.header("Entered Values:")
+    st.header("Entered Values")
     model_type = sample['Model'].lower().replace(" ", "_")
     del sample['Model']
     columns = ["Time of Day", "Temperature (C)", "Humidity (%)", "Wind speed (m/s)", "Visibility (10m)",
@@ -41,10 +35,46 @@ def home(sample):
 
     st.header("Prediction")
     pred = model.predict_bike_count(sample, model_type)
-    st.write(f'On this day, we predict that {pred} will be rented in Seoul.')
+    intensity = ''
+    icon = ''
+    if pred < 1185: 
+        intensity = 'slightly'
+        icon = '😅'
+    if pred >= 1185 and pred < 2370: 
+        intensity = 'moderately'
+        icon = '🥳'
+    elif pred >= 2370: 
+        intensity = 'very'
+        icon = '😱'
+    st.markdown(f'''
+                    > We predict that **{pred}** bikes will be demanded.
 
-    st.header("Is this accurate for places that are not Seoul?")
-    st.write("These predictions are only accurate for Seoul, South Korea. Because we were able to predict with high accuracy the bike rental patterns in Seoul, we suspect if similar data is collected for other large metropolitan areas (or bike friendly universities) we could predict bike rental in those areas with similar accuracy.")
+                    > It is going to be a *{intensity} busy* {icon} time to rent bikes in Seoul.
+                ''')
+
+    st.header('Which model to use?')
+    st.write('''
+                Here, we include 4 different models . 
+                We recommend using Random Forests or Gradient Boosting as they are the most accurate and comparable to one another. 
+                Support Vector Machine (SVM) is still accurate and trustworthy for a choice. 
+                Linear Regression is not accurate, but if you are curious, feel free to compare the outcomes between this algorithm and the others.
+            ''')
+
+    st.header("Model Comparison")
+    st.markdown(r"""
+        | Model             | $R^2$ with Grid Search | $R^2$ without Grid Search |
+        | :---              |                   ---: |                      ---: |
+        | Random Forest     | 0.908                  | 0.910                     |
+        | Gradient Boosting | 0.835                  | 0.928                     |
+        | SVM               | 0.799                  | 0.898                     |
+        | Linear Regression | 0.531                  | 0.538                     |
+    """)
+
+    st.header("Is this accurate for other places than Seoul?")
+    st.write("""
+                These predictions are only accurate for Seoul, South Korea. 
+                As we can predict the bike rental patterns in Seoul with high accuracy, our models can be trained with similar datasets collected for other metropolitan areas or bike friendly universities.
+            """)
 
 
 
@@ -98,7 +128,7 @@ def about_us():
     col2.write("I’m a junior at UC Davis studying for a Computer Science major.  I transferred in from Foothill College, where I majored in Mathematics and Computer Science, but I chose to focus on Computer Science because of the many interesting opportunities in the tech industry.  For this project, I worked on machine learning, specifically brainstorming with other members and creating the Random Forest and Gradient Boosting models.")
 
     col1.image(photos['charles'], caption='Charles Nguyen')
-    col1.write("I am a Computer Science senior at UC Davis. I am passionate about improving people's lives with technology and interested in STEM education, healthcare, and user privacy. For this project, I was in charge of developing the web application using Streamlit. I also implemented a deep neural network to compare with other models.")
+    col1.write("I am a Computer Science senior at UC Davis. I am passionate about improving people's lives with technology and interested in STEM education, healthcare, and user privacy. For this project, I was in charge of developing the web application using Streamlit. I also implemented a deep neural network and contributed to the writing.")
 
     col2.image(photos['gabriel'], caption='Gabriel Raulet')
     col2.write("I am a senior majoring in Computer Science and minoring in Mathematics at UC Davis.  I chose computer science as a major because I love developing applications/algorithms and using theory to help solve these problems more efficiently. I hope to work in the computational sciences on problems related to biology/ecology. For this project, I developed a random forest regressor model using a custom tree data structure for predicting demand.")
@@ -106,5 +136,5 @@ def about_us():
     col1.image(photos['albert'], caption='Albert Stanley')
     col1.write("I am a junior at UC Davis studying Computer Science. I chose my major because I enjoyed the problem solving nature of work in computer science, and I want to work within the machine learning field since it has brought about many of the interesting technologies we have today. I helped with data cleaning, training the linear regression model and training time series models.")
 
-    col2.image(photos['we'], caption='Jordan Stefani')
-    col2.write("")
+    col2.image(photos['jordan'], caption='Jordan Stefani')
+    col2.write("I am a Senior at UC Davis studying biotechnology and bioinformatics. I initially chose my major because I liked biology and hoped that the “technology” aspect of my major would make my degree more practical. Later, I found a passion for bioinformatics which led me to delve into computer science and math.")
